@@ -1,0 +1,59 @@
+﻿@model IEnumerable<VehicleMVC.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "GetVehicles";
+}
+
+<h1>GetVehicles</h1>
+
+<p>
+    <a asp-action="CreateVehicles">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Power)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModelName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Power)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditVehicles", new { id=item.Id }) |
+                @Html.ActionLink("Details", "GetVehicleById", new {id=item.Id }) |
+                @Html.ActionLink("Delete", "DeleteVehicles", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
